@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\corePackages\Core.CrossCuttingConcers\Core.CrossCuttingConcerns.csproj" />
+    <ProjectReference Include="..\..\corePackages\Core.Application\Core.Application.csproj" />
+    <ProjectReference Include="..\Domain\Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Features\Appointments\Command\" />
+    <Folder Include="Features\Appointments\Constants\" />
+    <Folder Include="Features\Appointments\Dtos\" />
+    <Folder Include="Features\Appointments\Validators\" />
+    <Folder Include="Features\Appointments\Rules\" />
+    <Folder Include="Features\Appointments\Queries\" />
+    <Folder Include="Features\Companies\Constants\" />
+    <Folder Include="Features\Companies\Queries\" />
+    <Folder Include="Features\Companies\Rules\" />
+    <Folder Include="Features\Companies\Validators\" />
+    <Folder Include="Features\Employees\Command\" />
+    <Folder Include="Features\Employees\Constants\" />
+    <Folder Include="Features\Employees\Dtos\" />
+    <Folder Include="Features\Employees\Queries\" />
+    <Folder Include="Features\Employees\Rules\" />
+    <Folder Include="Features\Employees\Validators\" />
+    <Folder Include="Features\Services\Command\" />
+    <Folder Include="Features\Services\Constants\" />
+    <Folder Include="Features\Services\Dtos\" />
+    <Folder Include="Features\Services\Queries\" />
+    <Folder Include="Features\Services\Rules\" />
+    <Folder Include="Features\Services\Validators\" />
+  </ItemGroup>
+
+</Project>

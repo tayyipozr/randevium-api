@@ -1,0 +1,54 @@
+version: "3.8"
+
+services:
+
+     randevuapi:
+        container_name: randevuapi
+        image: randevu-api
+        build: 
+            context: .
+            dockerfile: Dockerfile            
+        depends_on:
+            - randevudb
+        ports:
+            - 5055:5055 
+        networks:
+            - randevu-network
+        environment:
+            ASPNETCORE_ENVIRONMENT: Development
+     
+     randevudb:
+        container_name: randevudb
+        image: postgres:latest
+        volumes:
+            - devdata:/var/lib/randevu/postgresql/data
+        environment:
+            - POSTGRES_PASSWORD=1234
+            - POSTGRES_USER=admin
+            - POSTGRES_DB=devdb
+        networks:
+            - randevu-network
+        ports:
+            - 5436:5432
+
+     pgadmin:
+        container_name: randevudevpgadmin
+        image: dpage/pgadmin4:latest
+        environment:
+            - PGADMIN_DEFAULT_EMAIL=pgadmin4@pgadmin.org
+            - PGADMIN_DEFAULT_PASSWORD=admin
+
+        ports:
+            - 5051:80
+        volumes:
+            - pgadmin:/root/randevu/.pgadmin
+        networks:
+            - randevu-network
+
+volumes:
+    devdata:
+    pgadmin:
+
+networks:
+    randevu-network:
+        driver: bridge
