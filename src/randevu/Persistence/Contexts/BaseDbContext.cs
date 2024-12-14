@@ -1,13 +1,7 @@
 ﻿using Core.Security.Entities;
-using Core.Security.Enums;
 using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Persistence.Contexts
 {
@@ -18,14 +12,12 @@ namespace Persistence.Contexts
         public DbSet<OperationClaim> OperationClaims { get; set; }
         public DbSet<UserOperationClaim> UserOperationClaims { get; set; }
         public DbSet<RefreshToken> RefreshTokens { get; set; }
-        public DbSet<Company> Companies { get; set; }
         public DbSet<Appointment> Appointments { get; set; }
-        public DbSet<Service> Services { get; set; }
+        public DbSet<AppointmentDetail> AppointmentDetails { get; set; }
+        public DbSet<AppointmentTimeSlot> AppointmentTimeSlots { get; set; }
+        public DbSet<Company> Companies { get; set; }
         public DbSet<Employee> Employees { get; set; }
-        public DbSet<EmployeeService> EmployeeServices { get; set; }
-        public DbSet<EmployeeService> AppointmentServices { get; set; }
-
-
+        public DbSet<Service> Services { get; set; }
 
         public BaseDbContext(DbContextOptions dbContextOptions, IConfiguration configuration) : base(dbContextOptions)
         {

@@ -9,7 +9,8 @@ namespace Application.Features.Appointments.Constants
     public enum AppointmentStatus
     {
         Pending,
-        Approved,
-        Rejected
+        Confirmed,
+        Cancelled,
+        Completed
     }
 }

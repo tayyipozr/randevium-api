@@ -9,12 +9,14 @@ namespace Domain.Entities
         public int UserId { get; set; }
 
         public virtual AppUser User { get; set; }
-        public virtual Company Company { get; set; }
-        public virtual ICollection<Service> Services { get; set; }
+        public virtual Company? Company { get; set; }
+        public virtual ICollection<AppointmentDetail> AppointmentDetails { get; set; }
+        public virtual ICollection<AppointmentTimeSlot> AppointmentTimeSlots { get; set; }
 
         public Employee() 
         {
-            Services  = new HashSet<Service>();
+            AppointmentDetails = new HashSet<AppointmentDetail>();
+            AppointmentTimeSlots = new HashSet<AppointmentTimeSlot>();
         }
 
         public Employee(int id, string description, int companyId, int userId) : this()

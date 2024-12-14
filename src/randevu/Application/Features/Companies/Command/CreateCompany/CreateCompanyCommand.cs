@@ -1,6 +1,4 @@
-﻿using Application.Features.Auths.Command.Login;
-using Application.Features.Auths.Dtos;
-using Application.Features.Companies.Dtos;
+﻿using Application.Features.Companies.Dtos;
 using Application.Services.Repositories;
 using AutoMapper;
 using Domain.Entities;
@@ -10,8 +8,8 @@ namespace Application.Features.Companies.Command.CreateCompany
 {
     public class CreateCompanyCommand : IRequest<CompanyDto>
     {
-        public string Name { get; set; }
-        public string Description { get; set; }
+        public string? Name { get; set; }
+        public string? Description { get; set; }
         public int UserId { get; set; }
         public class CreateCompanyCommandHandler : IRequestHandler<CreateCompanyCommand, CompanyDto>
         {

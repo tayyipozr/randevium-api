@@ -1,14 +1,16 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
+    <PackageReference Include="FluentValidation" Version="11.4.0" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="8.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -20,10 +22,8 @@
   <ItemGroup>
     <Folder Include="Features\Appointments\Command\" />
     <Folder Include="Features\Appointments\Constants\" />
-    <Folder Include="Features\Appointments\Dtos\" />
     <Folder Include="Features\Appointments\Validators\" />
     <Folder Include="Features\Appointments\Rules\" />
-    <Folder Include="Features\Appointments\Queries\" />
     <Folder Include="Features\Companies\Constants\" />
     <Folder Include="Features\Companies\Queries\" />
     <Folder Include="Features\Companies\Rules\" />
@@ -36,8 +36,6 @@
     <Folder Include="Features\Employees\Validators\" />
     <Folder Include="Features\Services\Command\" />
     <Folder Include="Features\Services\Constants\" />
-    <Folder Include="Features\Services\Dtos\" />
-    <Folder Include="Features\Services\Queries\" />
     <Folder Include="Features\Services\Rules\" />
     <Folder Include="Features\Services\Validators\" />
   </ItemGroup>

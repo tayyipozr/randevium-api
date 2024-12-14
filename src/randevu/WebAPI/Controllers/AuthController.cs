@@ -5,6 +5,7 @@ using Application.Features.Auths.Queries;
 using Core.Security.Dtos;
 using Core.Security.Entities;
 using Domain.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -44,6 +45,7 @@ namespace WebAPI.Controllers
             return Ok(result.AccessToken);
         }
 
+        [Authorize]
         [HttpGet("GetMe")]
         public async Task<IActionResult> GetMe()
         {

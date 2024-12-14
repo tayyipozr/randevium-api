@@ -1,9 +1,6 @@
-﻿using Core.CrossCuttingConcerns.Exceptions;
-using Core.Security.Extensions;
+﻿using Core.Security.Extensions;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
-using System.Net;
 using System.Security.Claims;
 
 namespace WebAPI.Controllers
@@ -22,7 +19,8 @@ namespace WebAPI.Controllers
 
         protected int GetUserId()
         {
-            int? id = Convert.ToInt32(HttpContext.User?.Claims?.FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier)?.Value);
+            var identity = new ClaimsIdentity("Custom");
+            int id = Convert.ToInt32(HttpContext.User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier)?.Value);
             return (int)id;
         }
 

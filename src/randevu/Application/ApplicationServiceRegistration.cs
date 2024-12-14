@@ -9,14 +9,14 @@ using System.Reflection;
 
 namespace Application
 {
-   
-        public static class ApplicationServiceRegistration
+
+    public static class ApplicationServiceRegistration
         {
             public static IServiceCollection AddApplicationServices(this IServiceCollection services)
             {
 
                 services.AddAutoMapper(Assembly.GetExecutingAssembly());
-                services.AddMediatR(Assembly.GetExecutingAssembly());
+                services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));
                 services.AddScoped<AuthBusinessRules>();
 
                 services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
@@ -25,7 +25,6 @@ namespace Application
                 //services.AddTransient(typeof(IPipelineBehavior<,>), typeof(CacheRemovingBehavior<,>));
                 //services.AddTransient(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
                 services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestValidationBehavior<,>));
-
                 services.AddScoped<IAuthService, AuthManager>();
 
             return services;
